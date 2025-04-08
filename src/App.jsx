@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import './components/IngredientList/IngredientList.jsx';
-import './components/BurgerStack/BurgerStack.jsx'
+import BurgerStack from './components/BurgerStack/BurgerStack.jsx'
+import IngredientList from './components/IngredientList/IngredientList.jsx';
 
 
 const App = () => {
@@ -23,11 +23,12 @@ const App = () => {
   ];
 
   const [stack, setStack] = useState([]);
-  const ingredient = availableIngredients.name
-  const addIngredients = (ingredient) => {
-    setaddIngredients([...stack, ingredient]);
+  const Ingredients = availableIngredients
+  
+  const addIngredients = (newIngredient) => {
+    console.log(newIngredient)
+    // setStack([...stack, newIngredient]);
   };
-
 
 
 
@@ -35,8 +36,8 @@ const App = () => {
     <main>
       <h1>Burger Stacker</h1>
       <section>
-        {/* <IngredientList />  // add here!
-        <BurgerStack stack={stack}/> */}
+       <IngredientList addIngredients={addIngredients} Ingredients={Ingredients}/>
+        {/* <BurgerStack /> */}
       </section>
     </main>
   );
