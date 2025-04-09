@@ -1,11 +1,23 @@
-
+import { useState } from "react";
 
 const BurgerStack = (props) => {
-    return (
+  const handleRemove = (ingredient) => {
+    props.removeIngredient(ingredient)
+  };
+    
+  const [burgerStack, setBurgerStack] = useState(props.Ingredients);
+  
+  
+  return (
     <ul>
       {props.stack.map((stacks, index) => {
         return 
-        <button key={index}>{stacks}</button>
+        <>
+        <li style={{backgroundColor: stacks.color}}>
+        {stacks.name}
+        </li>
+        <button>-</button>
+        </>
       })}
     </ul>
     )

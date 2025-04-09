@@ -26,8 +26,7 @@ const App = () => {
   const Ingredients = availableIngredients
   
   const addIngredients = (newIngredient) => {
-    console.log(newIngredient)
-    // setStack([...stack, newIngredient]);
+    setStack([...stack, newIngredient]);
   };
 
 
@@ -37,7 +36,7 @@ const App = () => {
       <h1>Burger Stacker</h1>
       <section>
        <IngredientList addIngredients={addIngredients} Ingredients={Ingredients}/>
-        {/* <BurgerStack /> */}
+        <BurgerStack stack={stack}/>
       </section>
     </main>
   );
