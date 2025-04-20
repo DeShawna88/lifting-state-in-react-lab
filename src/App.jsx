@@ -23,20 +23,23 @@ const App = () => {
   ];
 
   const [stack, setStack] = useState([]);
-  const Ingredients = availableIngredients
+  // const Ingredients = availableIngredients
   
   const addIngredients = (newIngredient) => {
     setStack([...stack, newIngredient]);
   };
 
-
+  const removeIngredient = (index) => {
+    const updatedStack = stack.filter((_, i) => i !== index); // Remove ingredient by index
+    setStack(updatedStack); // Update the stack state
+  };
 
   return (
     <main>
       <h1>Burger Stacker</h1>
       <section>
-       <IngredientList addIngredients={addIngredients} Ingredients={Ingredients}/>
-        <BurgerStack stack={stack}/>
+       <IngredientList addIngredients={addIngredients} Ingredients={availableIngredients}/>
+        <BurgerStack stack={stack} removeIngredient={removeIngredient}/>
       </section>
     </main>
   );

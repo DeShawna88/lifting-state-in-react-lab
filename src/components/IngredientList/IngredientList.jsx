@@ -15,10 +15,13 @@ const IngredientList = (props) => {
   
     return (
     <>
+    <h2>Ingredients</h2>
     <ul>
-      {ingredientList.map((ingredient) => {
+      {ingredientList.map((ingredient, index) => {
         return (
-        <li style={{backgroundColor: ingredient.color}}>
+        <li 
+        key={index}
+        style={{backgroundColor: ingredient.color}}>
           {ingredient.name}
           <button onClick={()=>handleAdd(ingredient)}>+</button>
         </li>
@@ -26,6 +29,7 @@ const IngredientList = (props) => {
       })}
         </ul>
       </>
+     
     );
   };
   
